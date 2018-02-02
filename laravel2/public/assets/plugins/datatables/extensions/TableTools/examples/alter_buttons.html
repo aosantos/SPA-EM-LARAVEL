@@ -5,9 +5,9 @@
 	<link rel="shortcut icon" type="image/ico" href="http://www.datatables.net/favicon.ico">
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
 
-	<title>ColVis example - Exclude columns from list</title>
+	<title>TableTools example - Button arrangement</title>
 	<link rel="stylesheet" type="text/css" href="../../../media/css/jquery.dataTables.css">
-	<link rel="stylesheet" type="text/css" href="../css/dataTables.colVis.css">
+	<link rel="stylesheet" type="text/css" href="../css/dataTables.tableTools.css">
 	<link rel="stylesheet" type="text/css" href="../../../examples/resources/syntax/shCore.css">
 	<link rel="stylesheet" type="text/css" href="../../../examples/resources/demo.css">
 	<style type="text/css" class="init">
@@ -15,7 +15,7 @@
 	</style>
 	<script type="text/javascript" language="javascript" src="../../../media/js/jquery.js"></script>
 	<script type="text/javascript" language="javascript" src="../../../media/js/jquery.dataTables.js"></script>
-	<script type="text/javascript" language="javascript" src="../js/dataTables.colVis.js"></script>
+	<script type="text/javascript" language="javascript" src="../js/dataTables.tableTools.js"></script>
 	<script type="text/javascript" language="javascript" src="../../../examples/resources/syntax/shCore.js"></script>
 	<script type="text/javascript" language="javascript" src="../../../examples/resources/demo.js"></script>
 	<script type="text/javascript" language="javascript" class="init">
@@ -23,9 +23,9 @@
 
 $(document).ready(function() {
 	$('#example').DataTable( {
-		dom: 'C<"clear">lfrtip',
-		colVis: {
-			exclude: [ 0 ]
+		dom: 'T<"clear">lfrtip',
+		tableTools: {
+			"aButtons": [ "copy", "print" ]
 		}
 	} );
 } );
@@ -37,14 +37,13 @@ $(document).ready(function() {
 <body class="dt-example">
 	<div class="container">
 		<section>
-			<h1>ColVis example <span>Exclude columns from list</span></h1>
+			<h1>TableTools example <span>Button arrangement</span></h1>
 
 			<div class="info">
-				<p>It can at times be useful to exclude columns from being in the 'show / hide' list (for example if you have hidden information that the end user shouldn't be
-				able to make visible. This can be done by the <code>exclude</code> ColVis configuration parameter when creating the DataTable. This is simply an array of integers,
-				indicating which columns should be excluded. This example shows the first column being excluded.</p>
-
-				<p>For full information about the ColVis options, please refer to the <a href="//datatables.net/extensions/colvis/options">ColVis options documentation</a>.</p>
+				<p>TableTools makes it very simple to arrange the buttons in the toolbar as you see fit. Using the <code>aButtons</code> parameter you can use any of the <a href=
+				"http://datatables.net/extensions/tabletools/buttons">predefined buttons</a> or <a href="http://datatables.net/extensions/tabletools/button_options">customised
+				buttons</a>. The example below shows how TableTools can be initialised to provide only the 'copy-to-clipboard' and 'print view' options (i.e. no save to local file
+				option is available).</p>
 			</div>
 
 			<table id="example" class="display" cellspacing="0" width="100%">
@@ -542,9 +541,9 @@ $(document).ready(function() {
 				<div class="js">
 					<p>The Javascript shown below is used to initialise the table shown in this example:</p><code class="multiline language-js">$(document).ready(function() {
 	$('#example').DataTable( {
-		dom: 'C&lt;&quot;clear&quot;&gt;lfrtip',
-		colVis: {
-			exclude: [ 0 ]
+		dom: 'T&lt;&quot;clear&quot;&gt;lfrtip',
+		tableTools: {
+			&quot;aButtons&quot;: [ &quot;copy&quot;, &quot;print&quot; ]
 		}
 	} );
 } );</code>
@@ -554,7 +553,7 @@ $(document).ready(function() {
 					<ul>
 						<li><a href="../../../media/js/jquery.js">../../../media/js/jquery.js</a></li>
 						<li><a href="../../../media/js/jquery.dataTables.js">../../../media/js/jquery.dataTables.js</a></li>
-						<li><a href="../js/dataTables.colVis.js">../js/dataTables.colVis.js</a></li>
+						<li><a href="../js/dataTables.tableTools.js">../js/dataTables.tableTools.js</a></li>
 					</ul>
 				</div>
 
@@ -572,7 +571,7 @@ $(document).ready(function() {
 
 					<ul>
 						<li><a href="../../../media/css/jquery.dataTables.css">../../../media/css/jquery.dataTables.css</a></li>
-						<li><a href="../css/dataTables.colVis.css">../css/dataTables.colVis.css</a></li>
+						<li><a href="../css/dataTables.tableTools.css">../css/dataTables.tableTools.css</a></li>
 					</ul>
 				</div>
 
@@ -602,16 +601,22 @@ $(document).ready(function() {
 						<h3><a href="./index.html">Examples</a></h3>
 						<ul class="toc active">
 							<li><a href="./simple.html">Basic initialisation</a></li>
-							<li><a href="./new_init.html">`new` initialisation</a></li>
-							<li><a href="./text.html">Custom button text</a></li>
-							<li class="active"><a href="./exclude_columns.html">Exclude columns from list</a></li>
-							<li><a href="./title_callback.html">Column button callback</a></li>
-							<li><a href="./button_order.html">Button ordering</a></li>
-							<li><a href="./mouseover.html">Mouseover activation</a></li>
-							<li><a href="./group_columns.html">Group columns</a></li>
-							<li><a href="./two_tables.html">Two tables with individual controls</a></li>
-							<li><a href="./two_tables_identical.html">Two tables with shared controls</a></li>
-							<li><a href="./restore.html">Restore / show all</a></li>
+							<li><a href="./swf_path.html">Setting the SWF path</a></li>
+							<li><a href="./new_init.html">Initialisation with `new`</a></li>
+							<li><a href="./defaults.html">Defaults</a></li>
+							<li><a href="./select_single.html">Row selection - single row select</a></li>
+							<li><a href="./select_multi.html">Row selection - multi-row select</a></li>
+							<li><a href="./select_os.html">Row selection - operating system style</a></li>
+							<li><a href="./select_column.html">Row selection - row selector on specific cells</a></li>
+							<li><a href="./multiple_tables.html">Multiple tables</a></li>
+							<li><a href="./multi_instance.html">Multiple toolbars</a></li>
+							<li><a href="./collection.html">Button collections</a></li>
+							<li><a href="./plug-in.html">Plug-in button types</a></li>
+							<li><a href="./button_text.html">Custom button text</a></li>
+							<li class="active"><a href="./alter_buttons.html">Button arrangement</a></li>
+							<li><a href="./ajax.html">Ajax loaded data</a></li>
+							<li><a href="./pdf_message.html">PDF message</a></li>
+							<li><a href="./bootstrap.html">Bootstrap styling</a></li>
 							<li><a href="./jqueryui.html">jQuery UI styling</a></li>
 						</ul>
 					</div>

@@ -5,7 +5,7 @@
 	<link rel="shortcut icon" type="image/ico" href="http://www.datatables.net/favicon.ico">
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
 
-	<title>ColVis example - Exclude columns from list</title>
+	<title>ColVis example - Mouseover activation</title>
 	<link rel="stylesheet" type="text/css" href="../../../media/css/jquery.dataTables.css">
 	<link rel="stylesheet" type="text/css" href="../css/dataTables.colVis.css">
 	<link rel="stylesheet" type="text/css" href="../../../examples/resources/syntax/shCore.css">
@@ -25,7 +25,7 @@ $(document).ready(function() {
 	$('#example').DataTable( {
 		dom: 'C<"clear">lfrtip',
 		colVis: {
-			exclude: [ 0 ]
+			activate: "mouseover"
 		}
 	} );
 } );
@@ -37,12 +37,12 @@ $(document).ready(function() {
 <body class="dt-example">
 	<div class="container">
 		<section>
-			<h1>ColVis example <span>Exclude columns from list</span></h1>
+			<h1>ColVis example <span>Mouseover activation</span></h1>
 
 			<div class="info">
-				<p>It can at times be useful to exclude columns from being in the 'show / hide' list (for example if you have hidden information that the end user shouldn't be
-				able to make visible. This can be done by the <code>exclude</code> ColVis configuration parameter when creating the DataTable. This is simply an array of integers,
-				indicating which columns should be excluded. This example shows the first column being excluded.</p>
+				<p>The default activation (showing the columns list) for ColVis is for the user to click the button. This can be altered to a <code>mouseover</code> activation by
+				making use of the <code>activate</code> initialisation option and setting it to <code class="string" title="String">mouseover</code>. This is shown in the example
+				below.</p>
 
 				<p>For full information about the ColVis options, please refer to the <a href="//datatables.net/extensions/colvis/options">ColVis options documentation</a>.</p>
 			</div>
@@ -544,7 +544,7 @@ $(document).ready(function() {
 	$('#example').DataTable( {
 		dom: 'C&lt;&quot;clear&quot;&gt;lfrtip',
 		colVis: {
-			exclude: [ 0 ]
+			activate: &quot;mouseover&quot;
 		}
 	} );
 } );</code>
@@ -604,10 +604,10 @@ $(document).ready(function() {
 							<li><a href="./simple.html">Basic initialisation</a></li>
 							<li><a href="./new_init.html">`new` initialisation</a></li>
 							<li><a href="./text.html">Custom button text</a></li>
-							<li class="active"><a href="./exclude_columns.html">Exclude columns from list</a></li>
+							<li><a href="./exclude_columns.html">Exclude columns from list</a></li>
 							<li><a href="./title_callback.html">Column button callback</a></li>
 							<li><a href="./button_order.html">Button ordering</a></li>
-							<li><a href="./mouseover.html">Mouseover activation</a></li>
+							<li class="active"><a href="./mouseover.html">Mouseover activation</a></li>
 							<li><a href="./group_columns.html">Group columns</a></li>
 							<li><a href="./two_tables.html">Two tables with individual controls</a></li>
 							<li><a href="./two_tables_identical.html">Two tables with shared controls</a></li>

@@ -5,7 +5,7 @@
 	<link rel="shortcut icon" type="image/ico" href="http://www.datatables.net/favicon.ico">
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
 
-	<title>ColVis example - Exclude columns from list</title>
+	<title>ColVis example - `new` initialisation</title>
 	<link rel="stylesheet" type="text/css" href="../../../media/css/jquery.dataTables.css">
 	<link rel="stylesheet" type="text/css" href="../css/dataTables.colVis.css">
 	<link rel="stylesheet" type="text/css" href="../../../examples/resources/syntax/shCore.css">
@@ -22,12 +22,10 @@
 
 
 $(document).ready(function() {
-	$('#example').DataTable( {
-		dom: 'C<"clear">lfrtip',
-		colVis: {
-			exclude: [ 0 ]
-		}
-	} );
+	var table = $('#example').DataTable();
+	var colvis = new $.fn.dataTable.ColVis( table );
+
+	$( colvis.button() ).insertAfter('div.info');
 } );
 
 
@@ -37,14 +35,15 @@ $(document).ready(function() {
 <body class="dt-example">
 	<div class="container">
 		<section>
-			<h1>ColVis example <span>Exclude columns from list</span></h1>
+			<h1>ColVis example <span>`new` initialisation</span></h1>
 
 			<div class="info">
-				<p>It can at times be useful to exclude columns from being in the 'show / hide' list (for example if you have hidden information that the end user shouldn't be
-				able to make visible. This can be done by the <code>exclude</code> ColVis configuration parameter when creating the DataTable. This is simply an array of integers,
-				indicating which columns should be excluded. This example shows the first column being excluded.</p>
+				<p>As well as providing the option to be initialised through the <code>C</code> option of <a href="//datatables.net/reference/option/dom"><code class="option"
+				title="DataTables initialisation option">dom<span>DT</span></code></a>, ColVis can also be added to a DataTable using direct initialisation - <code>new
+				$.fn.dataTable.ColVis();</code> as shown in this example. The ColVis control button it available through its <code>button()</code> method, which can then be used
+				to attach to the document where you need.</p>
 
-				<p>For full information about the ColVis options, please refer to the <a href="//datatables.net/extensions/colvis/options">ColVis options documentation</a>.</p>
+				<p>For full information about the ColVis API, please refer to the <a href="//datatables.net/extensions/colvis/api">ColVis API documentation</a>.</p>
 			</div>
 
 			<table id="example" class="display" cellspacing="0" width="100%">
@@ -541,12 +540,10 @@ $(document).ready(function() {
 			<div class="tabs">
 				<div class="js">
 					<p>The Javascript shown below is used to initialise the table shown in this example:</p><code class="multiline language-js">$(document).ready(function() {
-	$('#example').DataTable( {
-		dom: 'C&lt;&quot;clear&quot;&gt;lfrtip',
-		colVis: {
-			exclude: [ 0 ]
-		}
-	} );
+	var table = $('#example').DataTable();
+	var colvis = new $.fn.dataTable.ColVis( table );
+
+	$( colvis.button() ).insertAfter('div.info');
 } );</code>
 
 					<p>In addition to the above code, the following Javascript library files are loaded for use in this example:</p>
@@ -602,9 +599,9 @@ $(document).ready(function() {
 						<h3><a href="./index.html">Examples</a></h3>
 						<ul class="toc active">
 							<li><a href="./simple.html">Basic initialisation</a></li>
-							<li><a href="./new_init.html">`new` initialisation</a></li>
+							<li class="active"><a href="./new_init.html">`new` initialisation</a></li>
 							<li><a href="./text.html">Custom button text</a></li>
-							<li class="active"><a href="./exclude_columns.html">Exclude columns from list</a></li>
+							<li><a href="./exclude_columns.html">Exclude columns from list</a></li>
 							<li><a href="./title_callback.html">Column button callback</a></li>
 							<li><a href="./button_order.html">Button ordering</a></li>
 							<li><a href="./mouseover.html">Mouseover activation</a></li>
