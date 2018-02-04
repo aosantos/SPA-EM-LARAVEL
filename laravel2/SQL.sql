@@ -6,8 +6,8 @@
 -- --------------------------------------------------------
 
 -- Copiando estrutura do banco de dados para rest
-CREATE DATABASE IF NOT EXISTS `teste` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `teste`;
+CREATE DATABASE IF NOT EXISTS `rest` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `rest`;
 
 -- Copiando estrutura para tabela rest.migrations
 CREATE TABLE IF NOT EXISTS `migrations` (
